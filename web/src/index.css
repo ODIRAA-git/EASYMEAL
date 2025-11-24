@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.nav-list{
+  display: flex;
+  padding-left: 1200px;
+  list-style: none;
+ 
+}
+.nav-list > li{
+  
+}
+.nav-list  button{
+  background-color: yellow;
+  display: inline;
+  
+}
+.nav-header{
+  display: flex;
+  color:aliceblue;
+  justify-content: space-between;
+}
+.nav-header > h1{
+  padding-left: 100px;
+  letter-spacing: 10px;
+}
+.sub-header{
+  padding-left: 100px;
+  top:0;
+}
+.h1-span{
+  font-size: 1rem;
+  color:yellow;
+  display:list-item;
+  list-style: none;
+  letter-spacing: 5px;
+}
+.signup-subtitle{
+  font-size: 1rem;
+  color:yellow;
+  display:list-item;
+  list-style: none;
+  letter-spacing: 5px;
+
+}
+
+
+.nav-item {
+  display: flex;
+  list-style: none;
+  margin:10px;
+}
+.nav-item > li{
+  padding: 5px;
+  cursor:pointer;
+}
+body{
+  background-image: url(./assets/food3.jpeg);
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) {
+  .sidebar-container {
+    position: static !important;
+    left: 0 !important;
+  }
+
+  .mobile-menu-btn {
+    display: none !important;
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-header > h1 {
+    padding-left: 20px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .nav-list {
+    padding-left: 0 !important;
+  }
+
+  .nav-item {
+    gap: 0.5rem;
+  }
+}
