@@ -244,6 +244,47 @@
   transform: translateY(0);
 }
 
+/* Sign In + Guest Button Row */
+.login-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.login-actions .modern-btn {
+  flex: 1;
+  padding: 1rem 1rem;
+}
+
+.modern-btn.btn-guest {
+  background-color: #ffffff;
+  color: #1e5a9e;
+  border: 2px solid #1e5a9e;
+}
+
+.modern-btn.btn-guest:hover {
+  background-color: #eef4fb;
+  transform: translateY(-2px);
+}
+
+.modern-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Demo Credentials Note */
+.demo-note {
+  text-align: center;
+  margin-top: 1rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.demo-note strong {
+  color: #4b5563;
+  font-weight: 600;
+}
+
 /* Social Login Buttons */
 .social-login-buttons {
   display: flex;
@@ -369,5 +410,9 @@
 
   .modern-btn {
     width: 100%;
+  }
+
+  .login-actions {
+    flex-direction: column;
   }
 }

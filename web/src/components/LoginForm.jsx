@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase";
 import "../CSS/LoginForm.css";
 
+const DEMO_EMAIL = "demo@easymeal.com";
+const DEMO_PASSWORD = "easy0123";
+
 const LoginForm = ({ onLogin, onSwitchToSignup }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,8 +14,18 @@ const LoginForm = ({ onLogin, onSwitchToSignup }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    submitLogin(username, password);
+  };
+
+  const handleGuestLogin = () => {
+    setUsername(DEMO_EMAIL);
+    setPassword(DEMO_PASSWORD);
+    submitLogin(DEMO_EMAIL, DEMO_PASSWORD);
+  };
+
+  const submitLogin = async (username, password) => {
     const newErrors = {};
 
     if (!username) {
@@ -137,11 +150,22 @@ const LoginForm = ({ onLogin, onSwitchToSignup }) => {
           <a href="#" className="forgot-password-link">Forgot Password?</a>
         </div>
 
-        {/* Submit Button */}
-        <button type="submit" className="modern-btn btn-primary" disabled={loading}>
-          <i className="bi bi-box-arrow-in-right"></i>
-          {loading ? "Signing in..." : "Sign In"}
-        </button>
+        {/* Submit and Guest Buttons */}
+        <div className="login-actions">
+          <button type="submit" className="modern-btn btn-primary" disabled={loading}>
+            <i className="bi bi-box-arrow-in-right"></i>
+            {loading ? "Signing in..." : "Sign In"}
+          </button>
+          <button
+            type="button"
+            className="modern-btn btn-guest"
+            onClick={handleGuestLogin}
+            disabled={loading}
+          >
+            <i className="bi bi-person-badge"></i>
+            Continue as Guest
+          </button>
+        </div>
 
         {/* Divider */}
         <div className="divider">
@@ -178,6 +202,11 @@ const LoginForm = ({ onLogin, onSwitchToSignup }) => {
           Don't have an account? <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToSignup && onSwitchToSignup(); }}>Sign up now</a>
         </div>
       </form>
+
+      {/* Demo Credentials Note */}
+      <p className="demo-note">
+        Recruiter or reviewer? Use <strong>{DEMO_EMAIL}</strong> / <strong>{DEMO_PASSWORD}</strong> to log in.
+      </p>
     </div>
   );
 };
