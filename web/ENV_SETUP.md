@@ -14,8 +14,8 @@ After deploying your app to Netlify, you need to configure the following environ
 ### Required Environment Variables:
 
 ```
-VITE_SPOONACULAR_API_KEY=94359157b21645a08e4ab6eacdf021fc
-VITE_SITE_URL=https://your-app-name.netlify.app
+VITE_SPOONACULAR_API_KEY=your_spoonacular_api_key
+VITE_SITE_URL=https://eaziimeal.netlify.app
 ```
 
 **Important:** Replace `https://your-app-name.netlify.app` with your actual Netlify site URL.
